@@ -17,4 +17,5 @@ dependencyResolutionManagement {
 rootProject.name = "Multimodule Sample App"
 include(":app")
 include(":feature:home")
+include(":feature:details")
 include(":core:ui")

@@ -10,7 +10,7 @@ import com.philexliveprojects.multimodulesampleapp.core.ui.Label
 @Composable
 fun HomeScreen(title: String, onDetails: () -> Unit) {
     Column(Modifier.fillMaxSize()) {
-        Label(title)
+        Label(title, Modifier.weight(1f))
         GoToDetailsButton(onDetails)
     }
 }

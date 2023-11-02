@@ -8,12 +8,11 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-//import com.philexliveprojects.multimodulesampleapp.feature.home.HomeScreen
 import com.philexliveprojects.multimodulesampleapp.core.theme.MultimoduleSampleAppTheme
+import com.philexliveprojects.multimodulesampleapp.feature.details.DetailsScreen
 import com.philexliveprojects.multimodulesampleapp.feature.home.HomeScreen
 
 class MainActivity : ComponentActivity() {
@@ -43,9 +42,14 @@ fun MultimoduleSampleApp() {
     val navController = rememberNavController()
     NavHost(navController = navController, startDestination = Destinations.HOME) {
         composable(Destinations.HOME) {
-            HomeScreen(Destinations.HOME.replaceFirstChar { it.uppercase() }) { navController.navigate(Destinations.DETAILS) }
+            HomeScreen(Destinations.HOME.replaceFirstChar { it.uppercase() }) {
+                navController.navigate(
+                    Destinations.DETAILS
+                )
+            }
         }
         composable(Destinations.DETAILS) {
+            DetailsScreen(Destinations.DETAILS.replaceFirstChar { it.uppercase() }) { navController.navigateUp() }
         }
     }
 }
